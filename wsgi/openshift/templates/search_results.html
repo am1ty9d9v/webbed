@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title>Search Results | Webbed</title>
+    <link rel="stylesheet" href="/static/styles/style_of_results.css" />
+</head>
+<body>
+	<div id="top_bar">
+		<a href="/"><img src="/static/images/logo.png" alt="logo" width="250px" height="45px" /></a>
+		<form method="get" action="/search/">
+			<input type="text" name="keyword" value="{{ keyword }}"/>
+			<button type="submit" class="submit">Search</button>
+		</form>
+	</div>
+
+	<div id="extracted_links" class="positionleft">
+		<div style="border: 1px solid #d0caca; background: #ddd; color: #706e6e; padding: 10px;height: auto;margin-top: 10px;font-size: 10px;">
+			<ul>
+				<li>The search results will only contain the results from the url <a style="font-size: 10px;" href="http://blog.amityadav.in">http://blog.amityadav.in</a> because the crawler will not crawl the webpages outside this Website.</li>
+				<li>It will only search for single terms. Mutliple query is still under developement.</li>
+				<li>robots.txt file is obeyed strictly.</li>
+			</ul>
+		</div>
+		
+		{% if help_html == "Not found!" %}
+		<p id="docs_para">Keyword <b>{{keyword}}</b> not found, try the following one instead: </p>
+			<p align="justify" id="docs_para"> 
+			
+			{% for row in rows %}
+				<a href="/search/?keyword={{row.1}}">{{row.1}}</a>
+			{% endfor %}
+			</p>
+		{% else %}
+			<div>
+				<p>
+					You searched for: <b>{{ keyword }}</b>. It's found on the following link(s).
+				</p>
+				<p align="justify" id="docs_para"> 
+					{% for i in help_html %}
+					<a href="{{i}}">{{i}}</a><br />
+					{% endfor %}
+				</p>
+			</div>
+		{% endif %}
+		
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,122 @@
+<html>
+<head>
+    <title>Search Results | Webbed</title>
+    <link rel="icon" type="image/png" href="/static/images/favicon.png" />
+    <style>
+        html, body {
+			background: #FFFFFF;
+			font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+		}
+
+		li {
+			text-decoration: none;
+			list-style: none; 
+			padding-left: 70px;
+			margin-right: 15px;
+			font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+			font-size: 13px;
+			margin-bottom: 6px;
+		}
+
+		p{
+			color: #5A5A5A;
+			font-size: 16px;
+			padding-left: 40px;
+		}
+
+		#extracted_links.positionleft {
+			background: url('http://ubuntuone.com/4eeTH2TWbyoIGXP5DpOcEb');
+			background-position:top left ; 
+		    background-repeat:repeat-y;
+		    padding-left: 50px;
+		}
+
+		#extracted_links {
+			margin-left: 220px;
+			width: 700px;
+			padding-top: 70px;
+			background: ('http://www.finalyearondesk.com/theonlydesigners/images/shadow_left.png') ;
+
+		}
+
+		#top_bar {
+			width: 100%;
+			position: fixed;
+			border-top: 0px solid #fff;
+			border-left: 10px solid #fff;
+			border-right: 10px solid #fff;
+			border-bottom: 10px solid #4C4C4C;
+			background: #fff;
+			margin: -10px 0px 40px 0px;
+		}
+
+		#top_bar img {
+			float: left;
+			clear: both;
+			margin-top:10px;
+			padding-right: 20px;
+		}  
+
+		#top_bar form {
+			margin-top: 15px;
+			width: 700px;
+			float: left;
+			
+		}
+		#top_bar input[type=text]:focus {
+			border: 1px solid #000000;
+		}
+		#top_bar input[type=text] {
+			background: url('http://ubuntuone.com/5wKL6BwEscpWRdz3w7cGQA') no-repeat 98% center;
+			width: 80%;
+			font-size: 20px;
+			height: 37px;
+			padding-left: 7px;
+			color: #585858;
+			border: 1px solid #bbbdbe;
+			font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+		}
+		.submit {
+			padding-top: 7px;
+			padding-bottom: 7px;
+			padding-left: 25px;
+			padding-right: 25px;
+			background-color: #58B9EB;
+			border: 1px solid #40A2D4;
+			color: #FFFFFF;
+			cursor: pointer;
+			
+			font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+			font-size: 17px;
+			font-weight: bold;
+			top: 0px;
+			-moz-border-radius: 4px;
+			-webkit-border-radius: 4px;
+			border-radius: 4px;
+		}
+		.submit:hover {
+			background-color: #80cdf5;
+			border-color: #52b1e2;
+		}
+    </style>
+</head>
+<body>
+		<div id="top_bar">
+		<a href="/"><img src="http://ubuntuone.com/4a25FoGezStQGdJUx72De2" alt="logo" width="240" height="45"/></a>
+		<form method="get" action="/search/">
+			<input type="text" name="link" value="{{ link }}">
+			<button type="submit" class="submit">Search</button>
+		</form>
+	</div>
+
+	<div id="extracted_links" class="positionleft">
+		<p>
+			The submitted url <a href="{{link}}"> {{ link }} </a> is successfully submitted to our database for indexing.
+		</p>
+		{% for final_links in all_links %}
+			<li><a href="{{ final_links }}">{{ final_links }}</a></li><br />
+		{% endfor %}
+	</div>
+	
+</body>
+</html>
