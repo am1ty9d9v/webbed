@@ -7,5 +7,5 @@ The web crawler script final_crawler.py uses BeautifulSoup, an HTML parsing libr
 
 This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License. Please <a href='https://github.com/am1ty9d9v/webbed/blob/master/LICENSE.md'>see</a> the included licensing information for further details.
 
-A wroking version of this search engine is available at http://www.webbed.co.cc
+A working version of this search engine is available at http://www.webbed.co.cc
 
