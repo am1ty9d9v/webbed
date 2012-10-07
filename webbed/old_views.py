@@ -45,7 +45,7 @@ def search_results(request):
 	try:
 		keyword = request.GET.get('keyword', '').strip().lower()
 	
-		db = MySQLdb.connect("localhost","root","Meethimtat9314","webbed", charset='utf8')
+		db = MySQLdb.connect("localhost","root","9314","webbed", charset='utf8')
 		cursor = db.cursor()
 		#remove the below comments when you need to insert into db
 		#dict = {}
@@ -98,7 +98,7 @@ def extract_links(request):
 				soup = BeautifulSoup(html_source)
 				title = soup.title.string
 
-				db = MySQLdb.connect("localhost","root","Meethimtat9314","webbed" )
+				db = MySQLdb.connect("localhost","root","9314","webbed" )
 				cursor = db.cursor()
 				sql = """INSERT INTO links_link (all_links, website_name, html_source, title_of_url) VALUES (%s, %s, %s, %s)"""
 				cursor.execute(sql,(var_string, link, html_source, title))
