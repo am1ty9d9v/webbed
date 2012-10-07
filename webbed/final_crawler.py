@@ -1,10 +1,14 @@
 
 # coding=utf8
+
+# This code is taken form the Website http://www.udacity.com from the Course CS 101 in which
+# they have told to build a Web crawler.
+
 import urllib, urllib2, re
 import robotexclusionrulesparser as rerp
 from bs4 import BeautifulSoup
 from urlparse import urlparse, urljoin
-import csv
+
 
 def crawl_web(seed, max_pages, max_depth): # returns index, graph of inlinks
 	tocrawl = []
@@ -49,11 +53,13 @@ def get_page_data(page, url, dict):
 	except:
 		title = url
 	#try:
+	#The following part is still creating the peoblem, will get to you sooner..
 	import html2text
 	url = url.encode('utf8')
 	usock = urllib.urlopen(url)
 	html_source = usock.read()
 	html_source  = html_source.decode('utf8')
+	# Problem line...may be Encoding Error..:(, fed up of this Unicode Enocode decode
 	text = html2text.html2text(html_source)
 	text = text.encode('utf8')
 	text = str(text)
@@ -118,6 +124,8 @@ def add_page_to_index(index, url, content):
 		return
 	words = text.split()
 	punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+	
+	# Planning to make a separate file for the stop words....
 	stopwords = ['a', 'able', 'about', 'across', 'after', 'all', 'almost', 'also', 'am', 'among', 'an', 
 'and', 'any', 'are', 'as', 'at', 'be', 'because', 'been', 'but', 'by', 'can', 'cannot', 'could', 'dear',
 'did', 'do', 'does', 'either', 'else', 'ever', 'every', 'for', 'from', 'get', 'got', 'had', 'has', 'have',
@@ -190,7 +198,7 @@ def compute_ranks(graph):
     return ranks
 
 def is_website_allowed(url):
-	udacity_urls = ['www.9lessons.info', 'blog.amityadav.in', 'www.amityadav.in']
+	udacity_urls = ['blog.amityadav.in', 'www.amityadav.in']
 	parsed_url = urlparse(url)
 	if parsed_url[1] in udacity_urls:
 		return True
@@ -198,22 +206,6 @@ def is_website_allowed(url):
 	else:
 		return False
 
-def write_search_terms(filename, index):
-	f = open(filename, 'wt')
-	try:
-		writer = csv.writer(f)
-		writer.writerow(['term', 'urls'])
-		for term in index:
-			if len(term) > 500:
-				pass
-			else:
-				ascii_term = term.encode('ascii', 'ignore')
-				url_list = index[term]
-				urlstring = ",".join(url_list)
-				writer.writerow([ascii_term, urlstring])
-	finally:
-		f.close()
-		print "[write_search_terms()] Finished writing SearchTerm CSV file."
 
 def get_url_info(index, ranks, pagedata):
 	new_pagedata = {}
@@ -246,13 +238,15 @@ def get_url_info(index, ranks, pagedata):
 		new_pagedata[ascii_url] = [ascii_title, ascii_text, pagerank]
 	return new_pagedata
 	
-
+# Added by me in order to remove duplicates link
 def remove_duplicates(seq):
     seen = set()
     seen_add = seen.add
     return [ x for x in seq if x not in seen and not seen_add(x)]
    
-    
+# Link like http://amityadav.in/ and http://amityadav.in are same, but crawler takes it 
+# takes it differently, hence have to remove the trailing slah to make it eligible for 
+# like duplicacy elimination...    
 def rem_trailing_slash(li_urls):
 	li = []
 	for i in li_urls:
@@ -262,19 +256,6 @@ def rem_trailing_slash(li_urls):
 		li.append(j)
 	return li
 	
-def undupe_csv(filename, newfilename):
-	oldfile = csv.reader(open(filename, 'rb'))
-	newfile = open(newfilename, 'wb')
-	try:
-		writer = csv.writer(newfile)
-		unique_rows = []
-		for row in oldfile:
-			if row not in unique_rows:
-				unique_rows.append(row)
-		writer.writerows(unique_rows)
-	finally:
-		newfile.close()
-		print "[undupe_csv()] Index un-duped."
 
 def undupe_index(index):
 	for key in index.keys():
@@ -287,7 +268,7 @@ def undupe_index(index):
 cache = {}
 max_pages = 1000
 max_depth = 10
-crawl_list = ['http://www.9lessons.info', 'http://www.amityadav.in']
+crawl_list = ['http://www.amityadav.in']
 	
 def start_crawl():        		
 	index, graph, pagedata = crawl_web(crawl_list, max_pages, max_depth)
