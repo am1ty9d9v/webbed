@@ -53,7 +53,7 @@ def get_page_data(page, url, dict):
 	except:
 		title = url
 	#try:
-	#The following part is still creating the peoblem, will get to you sooner..
+	#The following part is still creating the problem, will get to you sooner..
 	import html2text
 	url = url.encode('utf8')
 	usock = urllib.urlopen(url)
@@ -246,7 +246,7 @@ def remove_duplicates(seq):
    
 # Link like http://amityadav.in/ and http://amityadav.in are same, but crawler takes it 
 # takes it differently, hence have to remove the trailing slah to make it eligible for 
-# like duplicacy elimination...    
+# link duplicacy elimination...    
 def rem_trailing_slash(li_urls):
 	li = []
 	for i in li_urls:
