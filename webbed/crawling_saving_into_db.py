@@ -1,6 +1,6 @@
 import MySQLdb
 def crawl_now():
-	db = MySQLdb.connect("localhost","root","Meethimtat9314","webbed", charset='utf8')
+	db = MySQLdb.connect("localhost","root","9314","webbed", charset='utf8')
 	
 	cursor = db.cursor()
 	#remove the below comments when you need to insert into db
