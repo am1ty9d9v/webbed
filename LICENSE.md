@@ -1,4 +1,4 @@
-This work is licensed under an Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+<h1>This work is licensed under an Attribution-NonCommercial-ShareAlike 3.0 Unported License.</h1>
 
 <a href='https://www.djangoproject.com/foundation/cla/faq/'>About the Django Contributor License Agreement</a>
 
@@ -57,7 +57,7 @@ Copyright Django Software Foundation. CC-BY..
 
 
 
-The Robot Exclusion Rules Parser is released under the following license:
+<h1>The Robot Exclusion Rules Parser is released under the following license:</h1>
 
 Copyright (c) 2010, Philip Semanchuk All rights reserved.
 
