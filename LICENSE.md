@@ -49,12 +49,14 @@ The Django Software Foundation
 609 New Hampshire Street 
 Lawrence, KS 66044 U.S.A.
 
-
-
-
-
-
 Copyright Django Software Foundation. CC-BY..
+
+
+
+
+
+
+
 The Robot Exclusion Rules Parser is released under the following license:
 
 Copyright (c) 2010, Philip Semanchuk All rights reserved.
