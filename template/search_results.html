@@ -1,0 +1,119 @@
+{% load pagination_tags %}
+<html>
+<head>
+    <title>{{keyword}} - Webbed search</title>
+    <link rel="stylesheet" href="/static/styles/style_of_results.css" />
+    <link rel="icon" type="image/png" href="/static/images/favicon.png" />
+    <script src="/static/js/jquery-1.4.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("#keyword").focus();
+        });
+    </script>
+</head>
+<body OnLoad="document.webbed-search.keyword.focus();">
+	<div id="top_bar">
+		
+		<a href="/"><img src="/static/images/logo.png" alt="logo" width="250px" height="60px" style="margin-top: 2px;"/></a>
+	
+		<form name="webbed-search" method="get" action="/search/">
+			<input id="keyword" type="text" name="keyword" value="{{ keyword }}"/>
+			<button type="submit" class="submit">Search</button>
+		</form>
+		
+	</div>
+	<div id="container">
+	<div id="col1">
+	<div id="sidebar">
+		<h2>Updates</h2>
+		<ul>
+			<li>The search results will only contain the results from the url <a style="font-size: 10px;" href="http://www.amityadav.in">http://amityadav.in</a> because the crawler is restricted to crawl the webpages outside this domain.</li>
+			<li>Mutliple query is implemented but single word query produce better results.</li>
+			<li>robots.txt file is strictly obeyed.</li>
+			<li><a style="font-size: 10px;" href="http://en.wikipedia.org/wiki/PageRank" target="_blank">Pagerank</a> algorithm is added, but not working...:P</li>
+			<li>Description part is improved.</li>
+			<li style="color: #605f5f;">Misspelled query suggestion in under developement.</li>
+		</ul>
+		
+		<div id="warning">
+			<p>A Warning: Please don't use Inernet Explorer to open this webpage as my page is scared of it...:P</p>
+		</div>
+	</div>
+
+	<div id="results_links" class="positionleft">	
+		
+		{% if all_urls != "Not found!" %}
+			
+			<div>
+				<p>
+					{% if count == 1 %}
+					<p style="color: #6a6a6a;font-size: 11px">Only {{count}} result, and it took {{total_time}} sec to fetch it. <a href="/feedback" style="color: #6a6a6a;font-size: 11px;float:right;">Feedback</a></p><hr />
+					{% elif count > 10 %}
+					<p style="color: #6a6a6a;font-size: 11px">About {{count}} results, and it took {{total_time}} sec to fetch it. <a href="/feedback" style="color: #6a6a6a;font-size: 11px;float:right;">Feedback</a></p><hr />
+					{% else %}
+					<p style="color: #6a6a6a;font-size: 11px">{{count}} results, and it took {{total_time}} sec to fetch it. <a href="/feedback" style="color: #6a6a6a;font-size: 11px;float:right;">Feedback</a></p><hr />
+					{% endif %}
+				</p>
+				<div id="docs_para"> 
+				
+				{% autopaginate list_of_all_urls 8 %}
+					{% for i in list_of_all_urls %}
+						
+						{% for j in rows_of_url_info %}
+							
+							{% if j.1 == i %}
+								<p><a href="{{i}}">{{j.2}}</a></p>
+								<p class="link_results" style="margin-top: -8px;">{{i}}</p>
+								<p style="margin-top: -8px;">
+									{% for k in url_desc1 %}
+										{% if i == k.0 %}
+											{{ k.1.1|safe }}
+										{% endif %}
+									{% endfor %}
+								</p>
+								
+							{% endif %}
+						{% endfor %}
+						
+					{% endfor %}
+					<span id="pag">{% paginate %}</span>
+				</div>
+			</div>
+		{% elif all_urls == "Not found!" %}
+			<p id="docs_para" style="border: 1px solid #ddd; padding: 10px; background: #f6f8f9; overflow: hidden;">Keyword <b>{{keyword}}</b> not found. </p>
+			<p>Try these:</p>
+			<p>
+				{% for i in rows_of_index_table %}
+					<p>{{i.1}}</p>
+				{% endfor %}
+			</p>
+			
+		{% else %}
+			<p id="docs_para" style="border: 1px solid #ddd; padding: 10px; background: #f6f8f9; overflow: hidden;">Please enter some query.</p>
+		{% endif %}
+		<hr />
+		<div id="footer_links"><ul>
+			<li><a href="http://en.wikipedia.org/wiki/Web_crawler">About Web crawler</a></li>
+			<li><a href="http://en.wikipedia.org/wiki/Web_search_engine">About Search Engine</a></li>
+			<li><a href="http://www.amityadav.in">amityadav.in</a></li>
+			<li><a href="http://en.wikipedia.org/wiki/Thesis">Final year project</a></li>
+			
+			<li><a href="#">GitHub | Webbed</a></li>
+			<li><a href="/feedback">Feedback</a></li>
+			</ul>
+		</div>
+		
+	</div>
+	</div>
+	<div id="col2">
+		<div id="right-sidebar">
+		</div>
+	</div>
+	</div>
+	
+	
+	
+		
+	
+</body>
+</html>

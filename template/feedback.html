@@ -1,0 +1,78 @@
+<html>
+<head>
+    <title>Feedback - Webbed</title>
+    <link rel="stylesheet" href="/static/styles/style_of_results.css" />
+    <link rel="icon" type="image/png" href="/static/images/favicon.png" />
+    <script src="/static/js/jquery-1.4.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("#keyword").focus();
+        });
+    </script>
+</head>
+<body OnLoad="document.webbed-search.keyword.focus();">
+	<div id="top_bar">
+		<a href="/"><img src="/static/images/logo.png" alt="logo" width="250px" height="60px" style="margin-top: 2px;"/></a>
+		<form name="webbed-search" method="get" action="/search/">
+			<input id="keyword" type="text" name="keyword" value="{{ keyword }}"/>
+			<button type="submit" class="submit">Search</button>
+		</form>
+		
+	</div>
+	<div id="container">
+	<div id="col1">
+	<div id="sidebar">
+		<h2>Updates</h2>
+		<ul>
+			<li>The search results will only contain the results from the url <a style="font-size: 10px;" href="http://www.amityadav.in">http://amityadav.in</a> because the crawler is restricted to crawl the webpages outside this domain.</li>
+			<li>Mutliple query is implemented but single word query produce better results.</li>
+			<li>robots.txt file is strictly obeyed.</li>
+			<li><a style="font-size: 10px;" href="http://en.wikipedia.org/wiki/PageRank" target="_blank">Pagerank</a> algorithm is added, but not working...:P</li>
+			<li>Description part is improved.</li>
+			<li style="color: #605f5f;">Misspelled query suggestion in under developement.</li>
+		</ul>
+		
+		<div id="warning">
+			<p>A Warning: Please don't use Inernet Explorer to open this webpage as my page is scared of it...:P</p>
+		</div>
+	</div>
+
+	<div id="results_links" class="positionleft">	
+		
+	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'blogwebbed'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript"></a></noscript>
+<a href="http://disqus.com" class="dsq-brlink"><span class="logo-disqus"></span></a>
+		<hr />
+		<div id="footer_links"><ul>
+			<li><a href="http://en.wikipedia.org/wiki/Web_crawler">About Web crawler</a></li>
+			<li><a href="http://en.wikipedia.org/wiki/Web_search_engine">About Search Engine</a></li>
+			<li><a href="http://www.amityadav.in">amityadav.in</a></li>
+			<li><a href="http://en.wikipedia.org/wiki/Thesis">Final year project</a></li>
+			
+			<li><a href="#">GitHub | Webbed</a></li>
+			<li><a href="/feedback">Feedback</a></li>
+			</ul>
+		</div>
+		
+	</div>
+	</div>
+	<div id="col2">
+		<div id="right-sidebar">
+		</div>
+	</div>
+	</div>
+		
+	
+</body>
+</html>

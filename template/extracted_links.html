@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>Search Results | Webbed</title>
+    <link rel="stylesheet" href="/static/styles/style_of_results.css" />
+</head>
+<body>
+	<div id="top_bar">
+		<img src="/static/images/logo.png" alt="logo" width="250px" height="45px" />
+		<form method="get" action="/submitted_link/">
+			<input type="text" name="link" value="{{ link }}"/>
+			<button type="submit" class="submit">Search</button>
+		</form>
+	</div>
+
+	<div id="extracted_links" class="positionleft">
+		<p>
+			The submitted url <a href="{{link}}"> {{ link }} </a> is successfully submitted to our database for indexing.
+		</p>
+		{% for final_links in all_links %}
+			<li><a href="{{ final_links }}">{{ final_links }}</a></li><br />
+		{% endfor %}
+	</div>
+	
+</body>
+</html>

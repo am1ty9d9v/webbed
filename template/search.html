@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Webbed</title>
+    <link rel="stylesheet" href="/static/styles/style_of_search_page.css" />
+    <link rel="icon" type="image/png" href="/static/images/favicon.png" />
+    <script src="/static/js/jquery-1.4.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("#keyword").focus();
+        });
+    </script>
+</head>
+<body OnLoad="document.webbed-search.keyword.focus();">
+	<div id="main-form">
+		<center><a href="/"><img src="/static/images/logo.png" alt="Webbed" width="450px" height="120px"/></a>
+		<form name="webbed-search" method="get" action="/search/">
+			
+			<input id="keyword" type="text" name="keyword" /><br /><br />
+			<button type="submit" class="submit">Search</button></center>
+		</form>
+	</div>
+
+	<div id="footer">
+		<ul>
+			
+			<li><a href="http://en.wikipedia.org/wiki/Web_crawler">About Web crawler</a></li>
+			<li><a href="http://en.wikipedia.org/wiki/Web_search_engine">About Search Engine</a></li>
+			<li><a href="http://www.amityadav.in">amityadav.in</a></li>
+			<li><a href="http://en.wikipedia.org/wiki/Thesis">Final year project</a></li>
+			
+			<li><a href="#">GitHub | Webbed</a></li>
+			<li><a href="/feedback">Feedback</a></li>
+			
+		</ul>
+	</div>
+</body>
+</html>
