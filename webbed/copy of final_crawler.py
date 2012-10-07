@@ -9,7 +9,7 @@ import csv
 def crawl_web(seed, max_pages, max_depth): # returns index, graph of inlinks
 	tocrawl = []
 	for url in seed:
-		if is_udacity(url):
+		if is_website_allowed(url):
 			tocrawl.append([url, 0])
 		else: 
 			print "[crawl-web()] This seed is not a amityadav.in site!"
@@ -111,7 +111,7 @@ def add_new_links(tocrawl, outlinks, depth):
     for link in outlinks:
     	if link:
         	if link not in tocrawl:
-        		if is_udacity(link):
+        		if is_website_allowed(link):
         			link = str(link)
         			tocrawl.append([link, depth+1])
 
@@ -193,7 +193,7 @@ def compute_ranks(graph):
         ranks = newranks
     return ranks
 
-def is_udacity(url):
+def is_website_allowed(url):
 	udacity_urls = ['blog.amityadav.in', 'www.amityadav.in']
 	parsed_url = urlparse(url)
 	if parsed_url[1] in udacity_urls:
