@@ -5,7 +5,7 @@ To build this search enigne, I have used Openshift as a platform to run the appl
 
 The web crawler script final_crawler.py uses BeautifulSoup, an HTML parsing library by Leonard Richardson, and the Robot Exclusion Rules parser by Philip Semanchuk.
 
-This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License. Please see the included licensing information for further details.
+This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License. Please <a href='https://github.com/am1ty9d9v/webbed/blob/master/LICENSE.md'>see</a> the included licensing information for further details.
 
 A wroking version of this search engine is available at http://www.webbed.co.cc
 
