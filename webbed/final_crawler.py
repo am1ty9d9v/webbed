@@ -1,6 +1,17 @@
 
 # coding=utf8
 
+#/*********************************************************************************************
+
+#Project : A web crawler cum search engine
+#URI: http://www.webbed.co.cc/
+#Version: 1.0
+#Author: Amit Yadav
+#Author URI: http://www.amityadav.in
+#Github URI: https://github.com/am1ty9d9v/webbed
+
+#**********************************************************************************************
+
 # This code is taken form the Website http://www.udacity.com from the Course CS 101 in which
 # they have told to build a Web crawler.
 

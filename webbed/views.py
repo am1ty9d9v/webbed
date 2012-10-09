@@ -1,4 +1,18 @@
 # coding: utf8
+
+
+#/*********************************************************************************************
+
+#Project : A web crawler cum search engine
+#URI: http://www.webbed.co.cc/
+#Version: 1.0
+#Author: Amit Yadav
+#Author URI: http://www.amityadav.in
+#Github URI: https://github.com/am1ty9d9v/webbed
+
+#**********************************************************************************************
+
+
 from django.utils.safestring import SafeUnicode
 from django.http import HttpResponse, Http404
 from django.shortcuts import render_to_response
