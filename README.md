@@ -1,10 +1,10 @@
-<center><img src='http://www.webbed.co.cc/static/images/logo.png' width='450px' height='120px' /><center><br />
+<center><img src='http://www.webbed.in/static/images/logo.png' width='450px' height='120px' /><center><br />
 
 
 *********************************************************************************************
 
 #Project : A web crawler cum search engine
-#URI: http://www.webbed.co.cc/
+#URI: http://www.webbed.in/
 #Version: 1.0
 #Author: Amit Yadav
 #Author URI: http://www.amityadav.in
@@ -20,5 +20,5 @@ The web crawler script final_crawler.py uses BeautifulSoup, an HTML parsing libr
 
 This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License. Please <a href='https://github.com/am1ty9d9v/webbed/blob/master/LICENSE.md'>see</a> the included licensing information for further details.
 
-A working version of this search engine is available at http://www.webbed.co.cc
+A working version of this search engine is available at http://www.webbed.in
 
